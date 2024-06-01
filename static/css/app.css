@@ -1,0 +1,327 @@
+/* #4464AD;  /*#5BA21C; */
+/* ------------ custom font --------------- */
+@font-face {
+  font-family: "GT America";
+  src: url("../fonts/GT-America/GT-America-Regular.ttf");
+}
+@font-face {
+  font-family: "handenburg";
+  src: url("../fonts/hardenburg/HardenburgRegular.ttf");
+}
+@font-face {
+  font-family: "handenburg bold";
+  src: url("../fonts/hardenburg/HardenburgBold.ttf");
+}
+/* ------------ custom font --------------- */
+/* ------------ glabal styles --------------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #efefef;
+  font-size: 14px;
+  font-family: "GT America";
+  color: #343a40;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.banner_section {
+  position: relative;
+  padding: 200px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.page_section {
+  position: relative;
+  padding: 40px 0;
+}
+
+.page_section_medium_padding {
+  position: relative;
+  padding: 65px 0;
+}
+
+.page_section_big_padding {
+  position: relative;
+  padding: 100px 0;
+}
+
+.cover_background {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.width {
+  width: 85%;
+}
+
+.w75 {
+  width: 75%;
+}
+
+.w70 {
+  width: 70%;
+}
+
+.w65 {
+  width: 65%;
+}
+
+.middle_width {
+  width: 50%;
+}
+
+.container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 85%;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: #ED776B;
+  color: #fff;
+  font-weight: 700;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.bg_white {
+  background-color: #fff;
+}
+
+.bg_primary {
+  background-color: #5BA21C;
+}
+
+.app_title {
+  position: relative;
+  font-size: 2rem;
+  color: #1D1739;
+  text-align: center;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.app_title:after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 70px;
+  height: 4px;
+  background-color: #ED776B;
+  margin-top: 10px;
+}
+
+.custom_banner {
+  background-image: linear-gradient(to bottom, #1D1739, #ED776B);
+}
+.custom_banner .title {
+  font-size: 3.3rem;
+  color: #fff;
+  font-weight: 700;
+}
+.custom_banner .title .icon_container {
+  background-color: transparent;
+  padding: 25px;
+  border: 5px dashed #fff;
+  border-radius: 50%;
+  margin-left: 10px;
+  -webkit-animation: rotation 3s infinite linear;
+  animation: rotation 3s infinite linear;
+  margin-bottom: -12px;
+}
+.custom_banner .title svg {
+  width: 40px;
+  height: 40px;
+}
+
+.picture_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+  background-position: center center;
+  background-size: cover;
+  z-index: 200;
+}
+
+/* ------------ global styles --------------- */
+/* ------------ header --------------- */
+header {
+  padding: 10px 0;
+  border-bottom: 1px solid #efefef;
+  background-color: #fff;
+}
+header .headside {
+  margin: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .headside .headside_right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .headside .headside_right .item {
+  padding: 6px 8px;
+  margin: 0 5px;
+  color: #343a40;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  font-weight: 600;
+}
+header .headside .headside_right .item:hover {
+  background-color: #efefef;
+  border-color: #efefef;
+}
+header .headside .headside_right .button {
+  padding: 6px 8px;
+  margin: 0 5px;
+  border: 2px solid #ED776B;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #ED776B;
+  font-weight: 700;
+  transition: 0.3s ease-in-out;
+}
+header .headside .headside_right .button:hover {
+  border-color: transparent;
+  background-color: #ED776B;
+  color: #fff;
+  color: #fff;
+}
+
+/* ------------ header --------------- */
+/* ------------ footer --------------- */
+footer {
+  background-image: linear-gradient(to top, #1D1739, #ED776B);
+  padding-bottom: 10px;
+}
+footer .footer_links {
+  padding: 40px 0;
+  color: #efefef;
+}
+footer .footer_links .c_grid {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  column-gap: 15px;
+}
+footer .footer_links .footer_title {
+  font-weight: 700;
+  grid-column-start: 1;
+  grid-column-end: 6;
+}
+footer .footer_links .footer_title .title {
+  color: #fff;
+  font-size: 2.8rem;
+}
+footer .footer_links .footer_title .subtitle {
+  color: #fff;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+footer .footer_links .util_links {
+  grid-column-start: 8;
+  grid-column-end: 10;
+  margin-top: -15px;
+}
+footer .footer_links .about {
+  grid-column-start: 10;
+  grid-column-end: 12;
+  margin-top: -15px;
+}
+footer .footer_links .fonction {
+  grid-column-start: 12;
+  grid-column-end: 14;
+  margin-top: -15px;
+}
+footer .footer_links .link {
+  color: #9e9e9e;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+footer .footer_links .link:hover {
+  color: #fff;
+}
+footer h3 {
+  position: relative;
+}
+footer h3:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 30px;
+  height: 2.5px;
+  background-color: #efefef;
+}
+footer .separator {
+  width: 80%;
+  height: 1px;
+  border-top: 1px dashed #848484;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+}
+footer .footer_socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+footer .footer_socials .social {
+  padding: 0 10px;
+  margin: 0 20px;
+}
+footer .footer_socials .social svg {
+  width: 30px;
+  height: 30px;
+}
+footer .copyright {
+  text-align: center;
+  color: #fff;
+}
+
+/* ------------ footer --------------- */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=app.scss.map */
+
+/*# sourceMappingURL=app.css.map */
