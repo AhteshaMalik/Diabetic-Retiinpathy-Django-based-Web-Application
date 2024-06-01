@@ -1,0 +1,416 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{% static 'icon.png' %}" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- css files -->
+    <link rel="stylesheet" href="{% static 'css/app.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/fonction.css' %}" type="text/css">
+    <!-- css files -->
+    <!-- svgs -->
+    <svg class="hidden">
+        <symbol id="arrow_right" viewBox="0 0 24 24">
+            <title>Arrow right</title>
+            <path d="M14.4301 5.92993L20.5001 11.9999L14.4301 18.0699" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.5 12H20.33" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="facebook" viewBox="0 0 32 32">
+            <title>Facebook</title>
+            <path d="M30.996 16.091c-0.001-8.281-6.714-14.994-14.996-14.994s-14.996 6.714-14.996 14.996c0 7.455 5.44 13.639 12.566 14.8l0.086 0.012v-10.478h-3.808v-4.336h3.808v-3.302c-0.019-0.167-0.029-0.361-0.029-0.557 0-2.923 2.37-5.293 5.293-5.293 0.141 0 0.281 0.006 0.42 0.016l-0.018-0.001c1.199 0.017 2.359 0.123 3.491 0.312l-0.134-0.019v3.69h-1.892c-0.086-0.012-0.185-0.019-0.285-0.019-1.197 0-2.168 0.97-2.168 2.168 0 0.068 0.003 0.135 0.009 0.202l-0.001-0.009v2.812h4.159l-0.665 4.336h-3.494v10.478c7.213-1.174 12.653-7.359 12.654-14.814v-0z"></path>
+        </symbol>
+        <symbol id="instagram" viewBox="0 0 32 32">
+            <title>Instagram</title>
+            <path d="M25.805 7.996c0 0 0 0.001 0 0.001 0 0.994-0.806 1.799-1.799 1.799s-1.799-0.806-1.799-1.799c0-0.994 0.806-1.799 1.799-1.799v0c0.993 0.001 1.798 0.805 1.799 1.798v0zM16 20.999c-2.761 0-4.999-2.238-4.999-4.999s2.238-4.999 4.999-4.999c2.761 0 4.999 2.238 4.999 4.999v0c0 0 0 0.001 0 0.001 0 2.76-2.237 4.997-4.997 4.997-0 0-0.001 0-0.001 0h0zM16 8.3c0 0 0 0-0 0-4.253 0-7.7 3.448-7.7 7.7s3.448 7.7 7.7 7.7c4.253 0 7.7-3.448 7.7-7.7v0c0-0 0-0 0-0.001 0-4.252-3.447-7.7-7.7-7.7-0 0-0 0-0.001 0h0zM16 3.704c4.003 0 4.48 0.020 6.061 0.089 1.003 0.012 1.957 0.202 2.84 0.538l-0.057-0.019c1.314 0.512 2.334 1.532 2.835 2.812l0.012 0.034c0.316 0.826 0.504 1.781 0.516 2.778l0 0.005c0.071 1.582 0.087 2.057 0.087 6.061s-0.019 4.48-0.092 6.061c-0.019 1.004-0.21 1.958-0.545 2.841l0.019-0.058c-0.258 0.676-0.64 1.252-1.123 1.726l-0.001 0.001c-0.473 0.484-1.049 0.866-1.692 1.109l-0.032 0.011c-0.829 0.316-1.787 0.504-2.788 0.516l-0.005 0c-1.592 0.071-2.061 0.087-6.072 0.087-4.013 0-4.481-0.019-6.072-0.092-1.008-0.019-1.966-0.21-2.853-0.545l0.059 0.019c-0.676-0.254-1.252-0.637-1.722-1.122l-0.001-0.001c-0.489-0.47-0.873-1.047-1.114-1.693l-0.010-0.031c-0.315-0.828-0.506-1.785-0.525-2.785l-0-0.008c-0.056-1.575-0.076-2.061-0.076-6.053 0-3.994 0.020-4.481 0.076-6.075 0.019-1.007 0.209-1.964 0.544-2.85l-0.019 0.059c0.247-0.679 0.632-1.257 1.123-1.724l0.002-0.002c0.468-0.492 1.045-0.875 1.692-1.112l0.031-0.010c0.823-0.318 1.774-0.509 2.768-0.526l0.007-0c1.593-0.056 2.062-0.075 6.072-0.075zM16 1.004c-4.074 0-4.582 0.019-6.182 0.090-1.315 0.028-2.562 0.282-3.716 0.723l0.076-0.025c-1.040 0.397-1.926 0.986-2.656 1.728l-0.001 0.001c-0.745 0.73-1.333 1.617-1.713 2.607l-0.017 0.050c-0.416 1.078-0.67 2.326-0.697 3.628l-0 0.012c-0.075 1.6-0.090 2.108-0.090 6.182s0.019 4.582 0.090 6.182c0.028 1.315 0.282 2.562 0.723 3.716l-0.025-0.076c0.796 2.021 2.365 3.59 4.334 4.368l0.052 0.018c1.078 0.415 2.326 0.669 3.628 0.697l0.012 0c1.6 0.075 2.108 0.090 6.182 0.090s4.582-0.019 6.182-0.090c1.315-0.029 2.562-0.282 3.716-0.723l-0.076 0.026c2.021-0.796 3.59-2.365 4.368-4.334l0.018-0.052c0.416-1.078 0.669-2.326 0.697-3.628l0-0.012c0.075-1.6 0.090-2.108 0.090-6.182s-0.019-4.582-0.090-6.182c-0.029-1.315-0.282-2.562-0.723-3.716l0.026 0.076c-0.398-1.040-0.986-1.926-1.729-2.656l-0.001-0.001c-0.73-0.745-1.617-1.333-2.607-1.713l-0.050-0.017c-1.078-0.416-2.326-0.67-3.628-0.697l-0.012-0c-1.6-0.075-2.108-0.090-6.182-0.090z"></path>
+        </symbol>
+        <symbol id="twitter" viewBox="0 0 32 32">
+            <title>Twitter</title>
+            <path d="M30.917 6.728c-1.026 0.465-2.217 0.805-3.464 0.961l-0.061 0.006c1.268-0.771 2.222-1.952 2.687-3.354l0.013-0.044c-1.124 0.667-2.431 1.179-3.82 1.464l-0.082 0.014c-1.123-1.199-2.717-1.946-4.485-1.946-3.391 0-6.14 2.749-6.14 6.14 0 0.496 0.059 0.979 0.17 1.441l-0.008-0.042c-5.113-0.254-9.613-2.68-12.629-6.366l-0.025-0.031c-0.522 0.873-0.831 1.926-0.831 3.052 0 0.013 0 0.026 0 0.039v-0.002c0 0.001 0 0.003 0 0.005 0 2.12 1.075 3.989 2.709 5.093l0.022 0.014c-1.026-0.034-1.979-0.315-2.811-0.785l0.031 0.016v0.075c0 0.001 0 0.002 0 0.002 0 2.961 2.095 5.434 4.884 6.014l0.040 0.007c-0.484 0.135-1.040 0.212-1.614 0.212-0.406 0-0.802-0.039-1.186-0.113l0.039 0.006c0.813 2.459 3.068 4.212 5.739 4.264l0.006 0c-2.072 1.638-4.721 2.627-7.602 2.627-0.005 0-0.009 0-0.014 0h0.001c-0.515-0.001-1.022-0.031-1.521-0.089l0.061 0.006c2.663 1.729 5.92 2.757 9.418 2.757 0.005 0 0.009 0 0.014 0h-0.001c0.037 0 0.082 0 0.126 0 9.578 0 17.343-7.765 17.343-17.343 0-0.039-0-0.077-0-0.116l0 0.006c0-0.262 0-0.524-0.019-0.786 1.21-0.878 2.229-1.931 3.042-3.136l0.028-0.044z"></path>
+        </symbol>
+        <symbol id="github" viewBox="0 0 48 48">
+            <title>Github</title>
+            <path d="M30 44.004v-10c0-.884-.197-1.722-.542-2.479.825-.167 1.65-.358 2.472-.601 2.527-.746 6.154-3.839 7.226-6.863 1.188-3.356 1.188-6.76 0-10.116l-.001-.001c-.213-.603-.537-1.211-.998-1.868.848-3.154.253-5.792.225-5.915l-.365-1.564-1.606.019c-.15.002-3.48.063-6.724 1.955a29.635 29.635 0 0 0-11.371 0c-3.243-1.892-6.573-1.953-6.724-1.955l-1.608-.019-.365 1.564c-.028.123-.623 2.761.225 5.915-.461.657-.785 1.266-.999 1.869-1.187 3.356-1.187 6.76.001 10.117 1.07 3.023 4.697 6.116 7.225 6.862.822.243 1.647.434 2.472.601A5.946 5.946 0 0 0 18 34.004v1.281c-.062.036-.127.065-.187.108-.289.211-2.869 1.967-5.505.09-.93-.946-1.386-1.639-1.826-2.309-.988-1.5-1.841-2.586-4.588-3.96a2 2 0 1 0-1.789 3.579c1.991.995 2.341 1.525 3.035 2.581.515.781 1.155 1.754 2.445 3.044l.215.186c1.692 1.27 3.447 1.723 5.053 1.723A9.286 9.286 0 0 0 18 39.76v4.253l12-.009z"/>
+        </symbol>
+        <symbol id="docker" viewBox="0 0 32 32">
+            <title>Docker</title>
+            <path d="M6.427 23.031c-0.911 0-1.739-0.744-1.739-1.651s0.744-1.656 1.739-1.656c1 0 1.751 0.745 1.751 1.656 0 0.907-0.833 1.651-1.745 1.651zM27.776 14.016c-0.183-1.323-1-2.401-2.079-3.224l-0.421-0.333-0.339 0.411c-0.656 0.745-0.921 2.068-0.839 3.057 0.079 0.751 0.317 1.495 0.74 2.073-0.344 0.177-0.76 0.333-1.084 0.505-0.76 0.249-1.5 0.333-2.239 0.333h-21.385l-0.084 0.489c-0.156 1.579 0.084 3.229 0.751 4.724l0.328 0.579v0.077c2 3.313 5.557 4.803 9.437 4.803 7.459 0 13.573-3.224 16.473-10.177 1.901 0.083 3.819-0.412 4.719-2.235l0.24-0.411-0.396-0.251c-1.083-0.661-2.563-0.749-3.801-0.416l-0.027 0.005zM17.099 12.693h-3.239v3.228h3.239zM17.099 8.636h-3.239v3.228h3.239zM17.099 4.495h-3.239v3.229h3.239zM21.057 12.693h-3.219v3.228h3.229v-3.228zM9.063 12.693h-3.219v3.228h3.229v-3.228zM13.099 12.693h-3.197v3.228h3.219v-3.228zM5.063 12.693h-3.199v3.228h3.24v-3.228zM13.099 8.636h-3.197v3.228h3.219v-3.224zM9.041 8.636h-3.192v3.228h3.219v-3.224l-0.021-0.004z"/>
+        </symbol>
+        <symbol id="arrow_down" viewBox="0 0 24 24">
+            <title>Arrow down</title>
+            <path d="M6 13L11.6464 18.6464C11.8417 18.8417 12.1583 18.8417 12.3536 18.6464L18 13" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 19L12 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="eye" viewBox="0 0 512 512">
+            <title>Eye</title>
+            <style type="text/css">
+            </style>
+            <g>
+                <path class="st0" d="M511.58,252.219c-0.403-1.756-0.807-2.737-1.17-3.647c-0.727-1.7-1.424-2.982-2.239-4.437
+                    c-3.006-5.228-7.831-12.308-14.444-21.216c-9.872-13.273-23.469-30.09-38.871-46.686c-15.417-16.596-32.518-32.938-49.93-45.279
+                    c-24.624-17.426-48.569-30.976-73.091-40.184C307.33,81.555,282.246,76.77,256,76.785c-26.246-0.015-51.33,4.77-75.836,13.986
+                    c-24.53,9.207-48.466,22.758-73.09,40.176c-25.899,18.407-51.401,45.729-71.098,69.459c-9.825,11.866-18.106,22.798-24.078,31.325
+                    c-2.999,4.272-5.403,7.926-7.254,11.011c-0.933,1.567-1.716,2.966-2.468,4.533c-0.38,0.799-0.744,1.622-1.147,2.777
+                    c-0.198,0.585-0.412,1.265-0.609,2.167c-0.19,0.91-0.412,2.033-0.42,3.781c0.008,1.741,0.229,2.872,0.42,3.781
+                    c0.395,1.756,0.807,2.729,1.17,3.646c0.728,1.701,1.424,2.983,2.239,4.43c3.006,5.229,7.831,12.316,14.444,21.223
+                    c9.864,13.274,23.469,30.098,38.871,46.695c15.417,16.596,32.519,32.93,49.93,45.27c24.624,17.426,48.561,30.969,73.09,40.184
+                    c24.506,9.208,49.59,14.001,75.836,13.985c26.246,0.016,51.33-4.777,75.836-13.985c24.522-9.216,48.466-22.758,73.091-40.176
+                    c25.898-18.408,51.401-45.729,71.098-69.46c9.824-11.865,18.106-22.797,24.078-31.325c2.998-4.279,5.402-7.926,7.254-11.019
+                    c0.934-1.566,1.717-2.966,2.468-4.525c0.372-0.799,0.744-1.622,1.147-2.785c0.198-0.585,0.412-1.257,0.609-2.159
+                    c0.19-0.91,0.412-2.04,0.42-3.781C511.992,254.252,511.771,253.129,511.58,252.219z M256,377.487
+                    c-67.103,0-121.486-54.392-121.486-121.486c0-67.079,54.383-121.486,121.486-121.486c67.103,0,121.486,54.407,121.486,121.486
+                    C377.486,323.095,323.103,377.487,256,377.487z"/>
+                <path class="st0" d="M286.415,250.384c-6.376,1.171-12.902-1.092-17.166-5.965c-4.271-4.888-5.648-11.644-3.631-17.814l7.911-24.19
+                    c-5.522-1.804-11.399-2.8-17.53-2.8c-31.15,0-56.392,25.233-56.392,56.384c0,31.15,25.242,56.4,56.392,56.4
+                    c31.151,0,56.392-25.25,56.392-56.4c0-3.496-0.364-6.914-0.973-10.235L286.415,250.384z"/>
+            </g>
+        </symbol>
+        <symbol id="cloud" viewBox="0 0 24 24">
+            <title>Televerse</title>
+            <path d="M7 19L5.78311 18.9954C3.12231 18.8818 1 16.6888 1 14C1 11.3501 3.06139 9.18169 5.66806 9.01084C6.78942 6.64027 9.20316 5 12 5C15.5268 5 18.4445 7.60822 18.9293 11.001L19 11C21.2091 11 23 12.7909 23 15C23 17.1422 21.316 18.8911 19.1996 18.9951L17 19M12 10V18M12 18L15 15M12 18L9 15" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </symbol>
+        <symbol id="close" viewBox="0 0 24 24">
+            <title>Close</title>
+            <g clip-path="url(#clip0_429_11083)">
+                <path d="M7 7.00006L17 17.0001M7 17.0001L17 7.00006" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_429_11083">
+            <rect width="24" height="24" fill="white"/>
+            </clipPath>
+            </defs>
+        </symbol>
+        <symbol id="about_icon" viewBox="0 0 502.643 502.643">
+            <title>About</title>
+            <g>
+                <g>
+                    <path d="M251.256,237.591c37.166,0,67.042-30.048,67.042-66.977c0.043-37.037-29.876-66.999-67.042-66.999
+                        c-36.908,0-66.869,29.962-66.869,66.999C184.387,207.587,214.349,237.591,251.256,237.591z"/>
+                    <path d="M305.032,248.506H197.653c-19.198,0-34.923,17.602-34.923,39.194v107.854c0,1.186,0.604,2.243,0.669,3.473h175.823
+                        c0.129-1.229,0.626-2.286,0.626-3.473V287.7C339.912,266.108,324.187,248.506,305.032,248.506z"/>
+                    <path d="M431.588,269.559c29.832,0,53.754-24.008,53.754-53.668s-23.922-53.711-53.754-53.711
+                        c-29.617,0-53.582,24.051-53.582,53.711C377.942,245.53,401.972,269.559,431.588,269.559z"/>
+                    <path d="M474.708,278.317h-86.046c-15.445,0-28.064,14.107-28.064,31.472v86.413c0,0.928,0.453,1.812,0.518,2.826h141.03
+                        c0.065-1.014,0.496-1.898,0.496-2.826v-86.413C502.707,292.424,490.11,278.317,474.708,278.317z"/>
+                    <path d="M71.011,269.559c29.789,0,53.733-24.008,53.733-53.668S100.8,162.18,71.011,162.18c-29.638,0-53.603,24.051-53.603,53.711
+                        S41.373,269.559,71.011,269.559L71.011,269.559z"/>
+                    <path d="M114.109,278.317H27.977C12.576,278.317,0,292.424,0,309.789v86.413c0,0.928,0.453,1.812,0.539,2.826h141.03
+                        c0.065-1.014,0.475-1.898,0.475-2.826v-86.413C142.087,292.424,129.489,278.317,114.109,278.317z"/>
+                </g>
+            </g>
+        </symbol>
+        <symbol id="demo_icon" viewBox="0 0 512 512">
+            <title>Demonstration</title>
+            <g>
+                <g>
+                    <path d="M445.217,107.432V22.271c0-13.345-14.922-21.268-25.956-13.891c-49.327,32.886-84.779,63.978-156.767,63.978h-99.19
+                        c-42.843,0-79.21,28.078-91.784,66.783H50.087C22.468,139.141,0,161.609,0,189.228s22.468,50.087,50.087,50.087h21.434
+                        c6.044,18.603,17.609,34.695,32.735,46.445l26.027,182.213c3.141,21.935,22.212,38.472,44.364,38.472h43.37
+                        c27.314,0,48.215-24.231,44.359-51.147l-11.833-82.843c28.088-2.158,51.313-22.804,56.061-51.011l1.671-9.926
+                        c43.582,9.763,55.061,21.271,110.987,58.556c10.991,7.335,25.956-0.461,25.956-13.891v-85.161
+                        C483.276,263.268,512,229.544,512,189.228C512,148.912,483.276,115.188,445.217,107.432z M66.783,205.923H50.087
+                        c-9.206,0-16.696-7.489-16.696-16.696c0-9.206,7.49-16.696,16.696-16.696h16.696V205.923z M218.016,473.054h-43.37
+                        c-5.646,0-10.51-4.217-11.31-9.805l-22.854-159.991c7.332,1.788,14.947,2.839,22.822,2.839h44.031l4.769,33.391h-22.888
+                        c-9.223,0-16.696,7.473-16.696,16.696c0,9.223,7.473,16.696,16.696,16.696h27.657l4.769,33.391h-21.296
+                        c-9.223,0-16.696,7.473-16.696,16.696c0,9.223,7.473,16.696,16.696,16.696h26.065l2.907,20.359
+                        C230.305,466.914,224.978,473.054,218.016,473.054z M245.832,339.485l-4.769-33.387c20.014,0,24.28-0.203,34.184,0.484
+                        C272.574,322.465,267.795,339.451,245.832,339.485z M411.826,122.446v133.565v68.977c-41.986-27.994-23.329-15.727-33.391-21.89
+                        V75.358c10.062-6.163-8.595,6.103,33.391-21.89V122.446z"/>
+                </g>
+            </g>
+        </symbol>
+        <symbol id="func_icon" viewBox="0 0 502.664 502.664">
+            <title>Function</title>
+            <g>
+                <g>
+                    <g>
+                        <path style="fill:#010002;" d="M298.367,235.887l26.964-26.899l-27.503-27.481l-26.899,26.963
+                            c-11.281-7.679-24.159-13.007-38.008-15.704v-38.116h-38.784v38.137c-13.892,2.675-26.705,7.981-37.943,15.682l-26.963-26.963
+                            l-27.438,27.481l26.877,26.899c-7.571,11.282-12.899,24.073-15.596,38.008h-38.18v38.763h38.18
+                            c2.696,13.848,8.003,26.661,15.596,37.943l-26.877,26.963l27.416,27.438l26.963-26.92c11.238,7.636,24.073,12.964,37.965,15.66
+                            v38.159h38.806v-38.159c13.848-2.653,26.683-7.96,38.008-15.617l26.899,26.877l27.503-27.438l-26.963-26.963
+                            c7.636-11.238,12.986-24.095,15.574-37.943h38.223v-38.763h-38.245C311.331,259.96,306.025,247.169,298.367,235.887z
+                             M213.508,335.652c-23.361,0-42.322-19.047-42.322-42.451c0-23.34,18.961-42.343,42.322-42.343
+                            c23.426,0,42.408,19.004,42.408,42.343C255.937,316.605,236.955,335.652,213.508,335.652z"/>
+                        <path style="fill:#010002;" d="M336.073,105.362c-34.017-21.765-74.247-34.6-117.582-34.6C97.823,70.763,0,168.565,0,289.232
+                            c0,50.432,17.257,96.659,45.903,133.674l27.438-27.416c-21.83-29.789-35.117-66.222-35.117-106.085
+                            c0-99.549,80.696-180.202,180.245-180.202c33.111,0,63.655,9.556,90.338,25.303l-21.053,22.434l85.571,7.765l-9.189-89.346
+                            L336.073,105.362z"/>
+                        <polygon style="fill:#010002;" points="502.664,293.826 449.061,240.245 449.061,270.25 378.503,270.25 378.503,317.403 
+                            449.061,317.403 449.061,347.473 			"/>
+                    </g>
+                </g>
+            </g>
+        </symbol>
+    </svg>
+    <!-- svgs -->
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+
+
+
+    <header>
+        <div class="headside">
+            <div class="headside_left">
+                <a href="/">
+                    <img src="{% static 'images/logo3.png' %}" alt="" srcset="">
+                </a>
+            </div>
+            <div class="headside_right">
+
+                {# Will know if user is logged in or not#}
+                 {% if user.is_authenticated %}
+
+
+                
+                <a class="link item" href="{% url 'edit_profile' %}">Edit Profile</a>
+                <a class="link item" href="{% url 'change_password' %}">Change Password</a>
+                <a class="link button" href="{% url 'logout' %}">Logout</a>
+
+
+                {% else %}
+            
+                <a class="link item" href="{% url 'login' %}">Login</a>
+                <a class="link item" href="{% url 'about' %}">About</a>
+                <a class="link item" href="{% url 'demo' %}">Demo</a>
+                <a class="link button" href="{% url 'register' %}">Register</a>
+                
+
+      {% endif%}
+            </div>
+        </div>
+    </header>
+
+
+
+      <br/>
+      <div class ="container">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-danger alart-dismissable" role ="alert">
+                <button class="close" data-dismiss="alert">
+                    <small><sup>x</sup></small>
+                  </button>
+                {{ message }}
+              </div>
+            {% endfor%}
+          {% endif %}
+
+
+    {% block content %}
+    {% endblock %}
+      </div>
+
+      <footer >
+        <div class="footer_links">
+            <div class="container">
+                <div class="c_grid">
+                    <div class="footer_title">
+                        <a href="/" class="title link">
+                            RetinaCare
+                        </a>
+                        <div class="subtitle">
+                          Diabetic Retinopathy Detection
+                        </div>
+                    </div>
+                    <div class="util_links">
+                        <h3>Useful links</h3>
+                        <a class="link" href="/#la-retinopatie-diabetique"><p>Home</p></a>
+                        <a class="link" href="/#les-quatres-stades"><p>Register</p></a>
+                        <a class="link" href="/#faire-le-test"><p>Login</p></a>
+                    </div>
+                    <div class="about">
+                        <h3>About</h3>
+                        <a class="link" href="{% url 'about' %}"><p>About</p></a>
+                    </div>
+                    <!-- <div class="fonction">
+                        <h3>Plateforme</h3>
+                        <a class="link" href="/demo/#demonstration"><p>Démonstration</p></a>
+                        <a class="link" href="/fonction/#les-données"><p>Entrainement des données</p></a>
+                        <a class="link" href="/demo/#instructions"><p>Instructions</p></a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="footer_socials">
+            <a class="social link" href="" target="_blank">
+                <svg>
+                    <use xlink:href="#facebook" fill="#fff"></use>
+                </svg>
+            </a>
+            <a class="social link" href="" target="_blank">
+                <svg>
+                    <use xlink:href="#github" fill="#fff"></use>
+                </svg>
+            </a>
+            <a class="social link" href="" target="_blank">
+                <svg>
+                    <use xlink:href="#docker" fill="#fff"></use>
+                </svg>
+            </a>
+            <a class="social link" href="" target="_blank">
+                <svg>
+                    <use xlink:href="#twitter" fill="#fff"></use>
+                </svg>
+            </a>
+        </div>
+        <div class="copyright">
+            © <em>Retinacare</em>
+        </div>
+    </footer>
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+    // Trigger file input click when upload button is clicked
+    $('#button').click(function() {
+        $('#image').click();
+    });
+
+    // Perform predictions when process button is clicked
+    $('#process').click(function() {
+        var file = $('#image')[0].files[0];
+        if (file) {
+            var formData = new FormData();
+            formData.append('image', file);
+            formData.append('csrfmiddlewaretoken', '{{ csrf_token }}'); // Add CSRF token
+            
+            // Hide the button container and show the loader container
+            $('.button_container').hide();
+            $('.loader_container').show();
+            $('#title').html("Processing...");
+
+            $.ajax({
+                url: '/predict/',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                // success: function(response) {
+                //     $('#disease').text('Predicted Disease: ' + response.predictions[0][0]);
+                //     // Display prediction accuracy
+                //     $('#accuracy').text('Accuracy: ' + (response.predictions[0][0] * 100).toFixed(2) + '%');
+                //     // Show the result div
+                //     $('.result').show();
+                    
+                //     // Hide the loader container and show the button container
+                //     $('.loader_container').hide();
+                //     $('.button_container').show();
+                //     $('#title').html(""); // Reset the title
+                // },
+                // error: function(xhr, status, error) {
+                //     console.error(xhr.responseText);
+                //     // Show the button container and hide the loader container
+                //     $('.button_container').show();
+                //     $('.loader_container').hide();
+                //     $('#title').html(""); // Reset the title
+                // }
+                success: function(response) {
+    if ('predictions' in response) {
+        $('#disease').text('Predicted Label: ' + response.predictions[0]);
+        // Display prediction accuracy
+        $('#accuracy').text('Accuracy: ' + (response.predictions[2]).toFixed(2) + '%');
+    } else if ('message' in response) {
+        $('#disease').text(response.message);
+        $('#accuracy').text('');
+    }
+    // Show the result div
+    $('.result').show();
+    
+    // Hide the loader container and show the button container
+    $('.loader_container').hide();
+    $('.button_container').show();
+    $('#title').html(""); // Reset the title
+}
+            });
+        } else {
+            console.error('No file selected');
+        }
+    });
+
+    // Hide the result div initially
+    $('.result').hide();
+
+    // Preview the selected image
+    $("input[id='image']").on('change', function (event) {
+        let input = this;
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#banner').css('width', '400px')
+            $('#banner').addClass('img-thumbnail')
+            $('#banner').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    });
+
+    // Close container functionality
+    $('#close_container').click(() => {
+        $('#loader_container').hide();
+        $('.button_container').show();
+    });
+});
+
+
+
+    </script>
+
+<script>
+    document.getElementById('download').addEventListener('click', function() {
+    // Make an AJAX request to generate the PDF file
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/generate_pdf/', true);
+    xhr.responseType = 'blob';
+
+    xhr.onload = function() {
+        if (this.status === 200) {
+            // Create a blob URL for the PDF file
+            var blob = new Blob([this.response], { type: 'application/pdf' });
+            var url = window.URL.createObjectURL(blob);
+            // Create a link element to initiate the download
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'predictions.pdf';
+            // Append the link to the document body and trigger the click event
+            document.body.appendChild(a);
+            a.click();
+            // Remove the link from the document body
+            document.body.removeChild(a);
+            // Revoke the blob URL to free up memory
+            window.URL.revokeObjectURL(url);
+        }
+    };
+
+    xhr.send();
+});
+</script>
+
+</body>
+
+</html>

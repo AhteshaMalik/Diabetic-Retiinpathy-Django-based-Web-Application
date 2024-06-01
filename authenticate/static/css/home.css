@@ -1,0 +1,194 @@
+/*#5BA21C; */
+.banner {
+  background-image: url("../images/home/banner-cover.jpg");
+}
+.banner .hero_content {
+  padding: 30px 0;
+}
+.banner .title {
+  margin: 0;
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.banner .subtitle {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 35px;
+  text-shadow: 1px 1px 2px #ED776B, 0 0 1em #4464AD, 0 0 0.2em #4464AD;
+}
+.banner .more {
+  color: #343a40;
+  display: flex;
+  font-size: 1.2em;
+  width: 240px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+  position: relative;
+  left: 0;
+}
+.banner .more span {
+  margin-right: 10px;
+  color: #efefef;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px #ED776B, 0 0 1em #4464AD, 0 0 0.2em #4464AD;
+}
+.banner .more svg {
+  width: 25px;
+  height: 25px;
+}
+.banner .more .arrow_container {
+  border: 2px solid transparent;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.banner .more:hover {
+  background-color: #fff;
+  -webkit-animation: bounce 0.1s linear;
+  animation: bounce 0.1s linear;
+}
+.banner .more:hover span {
+  text-shadow: none;
+  color: #4464AD;
+}
+.banner .more:hover .arrow_container {
+  border-color: #4464AD;
+}
+
+.whatis .content {
+  padding: 25px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: 0.4s ease;
+}
+.whatis .content:hover {
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(0.98);
+}
+.whatis .content:hover strong {
+  color: #ED776B;
+}
+
+.stage {
+  padding-top: 30px;
+}
+.stage .container .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+.stage .container .content .col {
+  padding: 0 0 15px 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.5s ease;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.stage .container .content .col img {
+  width: 250px;
+  height: 230px;
+}
+.stage .container .content .col .name {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+.stage .container .content .col:hover {
+  transform: scale(0.92);
+}
+.stage .container .content .col:hover .name {
+  color: #ED776B;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.popular {
+  background-color: #fff;
+}
+.popular .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+}
+.popular .row .left {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-left: 40px;
+}
+.popular .row .doctor_image {
+  padding: 250px 0;
+  background-image: url("../images/home/doctors.svg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.thematic .container .app_title {
+  margin-bottom: 30px;
+}
+.thematic .container .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px;
+}
+.thematic .container .content .col {
+  padding: 30px;
+  background-image: url("../images/home/pattern.jpg");
+  transition: 0.5s ease;
+  position: relative;
+  top: 0;
+  cursor: pointer;
+}
+.thematic .container .content .col .bg_white {
+  padding: 140px 20px;
+  text-align: center;
+}
+.thematic .container .content .col img {
+  width: 80px;
+  height: 80px;
+}
+.thematic .container .content .col .name {
+  padding: 0 30px;
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.thematic .container .content .col:hover {
+  top: -15px;
+}
+.thematic .container .content .col:hover .name {
+  color: #ED776B;
+}
+.thematic .title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #343a40;
+  margin-top: 20px;
+}
+
+@keyframes bounce {
+  0% {
+    left: -30px;
+  }
+  50% {
+    left: 0;
+  }
+  100% {
+    left: 30px;
+  }
+}
+
+/*# sourceMappingURL=home.css.map */

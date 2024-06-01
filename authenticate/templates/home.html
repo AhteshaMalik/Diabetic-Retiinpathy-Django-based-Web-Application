@@ -1,0 +1,343 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+{% load static %}
+
+{% if user.is_authenticated %}
+	<!-- <p>Name: {{user.first_name}} {{ user.last_name}}</p>
+	<p>Username: {{user.username}}</p>
+	
+	<p>Email: {{user.email}}</p> -->
+
+
+    
+
+
+  
+	 <!-- demo banner -->
+	 <div class="custom_banner demo page_section_big_padding">
+		<div class="container">
+			<div class="title">
+				Test and demonstration
+				<svg class="icon_container">
+					<!-- <use xlink:href="#demo_icon"></use> -->
+				</svg>
+			</div>
+		</div>
+	  </div>
+<br>
+      <div class="app_title">
+        Welcome {{user.first_name}} {{ user.last_name}} !
+    </div>
+
+     
+	  <!-- demo banner -->
+	  <!-- directives -->
+	  <!-- <section class="directives page_section_medium_padding" id="instructions">
+		<div class="container">
+				<div class="app_title">
+					Quelques directives
+				</div>
+				<div class="content bg_white">
+					<div class="content_title">
+						Assurer vous de suivre les étapes suivantes 👇
+					</div>
+					<ul>
+						<li>
+							<svg>
+								<use xlink:href="#eye" fill="#ED776B"></use>
+							</svg>
+							Choisir une image d'oeil à tester
+						</li>
+						<li>
+							<svg>
+								<use xlink:href="#eye" fill="#ED776B"></use>
+							</svg>
+							Nous vous conseillons ceux utilisés pour le test
+						</li>
+						<li>
+							<svg>
+								<use xlink:href="#eye" fill="#ED776B"></use>
+							</svg>
+							Présents dans le repertoire 
+							<span class="second_color">dr_app/test</span> 
+						</li>
+						<li>
+							<svg>
+								<use xlink:href="#eye" fill="#ED776B"></use>
+							</svg>
+							Téléverser l'image à tester
+						</li>
+						<li>
+							<svg>
+								<use xlink:href="#eye" fill="#ED776B"></use>
+							</svg>
+							Cliquer sur <strong>procéder au test</strong> 
+						</li>
+					</ul>
+				</div>
+			
+		</div>
+	  </section> -->
+	  <!-- directives -->
+	  <!-- mise en pratique -->
+	  <section class="pratique page_section_medium_padding" id="demonstration">
+		<div class="container">
+			<!-- <div class="row"> -->
+				<div class="app_title">
+                    Put into practice
+				</div>
+				<div class="pdr_pdl">
+					<div class="main_content bg_white">
+						<div class="content">
+							
+							<div class="col bg_white image_container">
+								<img src="../static/images/demo/no-image.svg" id="banner" alt="select-img" >
+							</div>
+		
+							<div class="col bg_white select_image_container">
+								<div class="card">
+									<div class="card_top">
+                                        Click to upload an eye image 👇
+									</div>
+									<div class="card_center">
+										<svg class="arrow_container">
+											<use xlink:href="#arrow_down"></use>
+										</svg>
+									</div>
+									<div class="card_bottom">
+		
+										<div class="buttons">
+											<button class="btn "><input type="file" id="image"/></button>
+										</div>
+		
+										<div class="result" style="display: none;margin-left: 10%">
+											<p style="font-weight: bold;font-size: 24px;color: #3f51b5;" id="disease"></p>
+											<p style="font-weight: bold;font-size: 24px;color: #3f51b5;" id="accuracy"></p>
+                                            <p style="font-weight: bold;font-size: 24px;color: #3f51b5;" id="fundus"></p>
+											<!-- <p>
+												<a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+												aria-controls="collapseExample">
+													View Graph <i class="fas fa-angle-down"></i>
+												</a>
+												<a href="/" class="ml-5">
+													Try again <i class="fas fa-sync"></i>
+												</a> 
+											</p> -->
+											<div class="collapse" id="collapseExample">
+												<div class="card card-body">
+													<img id="graph" style="width: 350px">
+												</div>
+											</div>
+										</div>
+		
+									</div>
+								</div>
+							</div>
+		
+						</div>
+						<div class="button_container">
+							<button class="btn test_button" id="process">
+                                Process
+								<svg>
+									<use xlink:href="#cloud" fill="#ED776B"></use>
+								</svg>
+							</button>
+						</div>
+                        <div class="button_container">
+							<button class="btn test_button" id="download">
+                                Download last 10 Predictions
+								<svg>
+									<use xlink:href="#cloud" fill="#ED776B"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+				
+			<!-- </div> -->
+		</div>
+		<!-- loader container -->
+		<div class="loader_container picture_overlay hidden" id="loader_container">
+			<div class="content">
+				<div class="loader_card bg_white">
+					<div class="loader_text">
+						Please wait... <br/>
+                        Image processing in progress
+					</div>
+					<div class="loader"></div>
+				</div>
+			</div>
+			<svg id="close_container">
+				<use xlink:href="#close" fill="#fff"></use>
+			</svg>
+		</div>
+		<!-- loader container -->
+	  </section>
+	  <!-- mise pratique -->
+
+
+{% else %}
+    <!-- banner -->
+    <div class="banner banner_section cover_background" >
+        <div class="hero_content ">
+            <div class="container ">
+                <!-- <div class="row"> -->
+                    <h1 class="title" id="faire-le-test">
+                        Retinacare, the future
+                    </h1>
+                    <div class="subtitle w65">
+                        Test images of eyes with or without Diabetic Retinopathy
+                        , using CNN model-trained images
+                        
+                    </div>
+                    <a href="{% url 'about' %}" class="link more" >
+                        <span>Learn More</span>
+                        <svg class="arrow_container">
+                            <use xlink:href="#arrow_right" fill="#4464AD"></use>
+                        </svg>
+                    </a>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- banner -->
+    <!-- what is -->
+    <section class="whatis page_section_medium_padding" id="la-retinopatie-diabetique">
+        <div class="container">
+            <!-- <div class="row"> -->
+                <div class="app_title">
+                    What is Diabetic Retinopathy?
+                </div>
+            <!-- </div> -->
+            <div class="content bg_white">
+                Complication of diabetes that affects the eyes.<br/>
+                The <strong>diabetic retinopathy</strong> is due to
+                <strong>blood vessel damage
+                </strong> 
+                in the tissue at the back of the eye (retina). THE
+                <strong>poor follow-up of blood sugar</strong> is one of the risk factors. <br/>The first symptoms are floaters, <strong>a blur effect</strong>, 
+dark areas in vision, as well as difficulty perceiving
+colors. It can even lead to blindness. <br/>
+Mild cases can be treated by strict diabetes control, while
+that advanced cases may require surgery or
+                <strong>laser treatment</strong>.
+            </div>
+        </div>
+    </section>
+    <!-- what is -->
+    <!-- rd stage section -->
+    <section class="stage page_section_big_padding" id="les-quatres-stades">
+        <div class="container">
+            <!-- <div class="row"> -->
+                <div class="app_title">
+                    Different Stages Of Diabetic Retinopathy
+                </div>
+                <div class="content">
+                    <div class="col">
+                        <div class="img_container">
+                            <img src="../static/images/home/mild-npdr.png" alt="mild" srcset="">
+                        </div>
+                        <div class="name">
+                            <strong>Stage 1:</strong>
+                            mild non-proliferative diabetic retinopathy
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="img_container">
+                            <img src="../static/images/home/mod-npdr.png" alt="mod" srcset="">
+                        </div>
+                        <div class="name">
+                            <strong>Stage 2:</strong>
+                            Moderate non-proliferative diabetic retinopathy
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="img_container">
+                            <img src="../static/images/home/severe-npdr.png" alt="severe" srcset="">
+                        </div>
+                        <div class="name">
+                            <strong>Stage 3:</strong>
+                            severe non-proliferative diabetic retinopathy
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="img_container">
+                            <img src="../static/images/home/severe-npdr.png" alt="pro" srcset="">
+                        </div>
+                        <div class="name">
+                            <strong>Stage 4:</strong>
+                            proliferative diabetic retinopathy
+                        </div>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </div>
+    </section>
+    <!-- rd stage section -->
+    <!-- popular section -->
+    <section class="popular page_section ">
+        <div class="container ">
+            <div class="row">
+                <div class="left">
+                    <div class="app_title">
+                       <em> “The longer you have had diabetes, the more likely you are to develop retinopathy no matter how good your blood sugar control is” </em> <br>
+                        <em> <p style="font-size: 14px;">Dr. Goodwin</p> </em>
+
+                    </div>
+                </div>
+               <div class="right doctor_image"></div>
+            </div>
+
+        </div>
+        <div class="section_bottom_radius "></div>
+
+    </section>
+    <!-- popular section -->
+    <!-- thematic section -->
+    <section class="thematic page_section_medium_padding">
+        <div class="container">
+            <div class="app_title">
+            Our themes, concepts
+            </div>
+            <div class="content">
+                <div class="col">
+                    <div class="bg_white">
+                        <img src="../static/images/home/graph.svg" alt="graph" srcset="">
+                        <div class="name">
+                            Research and Development
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="bg_white">
+                        <img src="../static/images/home/idea.svg" alt="idea" srcset="">
+                        <div class="name">
+                            Brilliant ideas
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="bg_white">
+                        <img src="../static/images/home/layout.svg" alt="layout" srcset="">
+                        <div class="name">
+                            Multi-platform solution
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="bg_white">
+                        <img src="../static/images/home/layout.svg" alt="layout" srcset="">
+                        <div class="name">
+                            Robust Solutions
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- thematic section -->
+
+{% endif%}
+{% endblock %}
